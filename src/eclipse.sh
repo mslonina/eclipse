@@ -20,12 +20,17 @@ SLEEP=.25
 # burst mode frames (max bracketing for D850 is 9 frames)
 BURST=9
 
-#echo "reading capturetarget"
 #sudo gphoto2 --port "$PORT" --get-config capturetarget
-#echo "capture target set to 1"
 #sudo gphoto2 --port "$PORT" --set-config capturetarget=1
 #sudo gphoto2 --port "$PORT" --get-config capturetarget
+#sudo gphoto2 --port "$PORT" --get-config shutterspeed | sed -n 's/^Current: //p'
+#sudo gphoto2 --port "$PORT" --trigger-capture     # --capture-image is slow; keep on card; download later
 
+#
+# The loop
+#
+# A working example of shooting 9FPS bracket mode with gphoto2 and D850 via usb-c
+#
 for s in "${BRACKET_CENTERS[@]}"; do
 	echo "speed: $s"
   sudo gphoto2 --port "$PORT" \
@@ -34,8 +39,5 @@ for s in "${BRACKET_CENTERS[@]}"; do
     --set-config burstnumber=$BURST \
     --trigger-capture
   sleep $SLEEP
-  # Optional safety: confirm it applied (parse Current: from --get-config shutterspeed)
-  #sudo gphoto2 --port "$PORT" --get-config shutterspeed | sed -n 's/^Current: //p'
-  #sudo gphoto2 --port "$PORT" --trigger-capture     # --capture-image is slow; keep on card; download later
 done
 
