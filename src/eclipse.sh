@@ -5,6 +5,8 @@ set -euo pipefail
 # - add multiple cameras support (sth like eclipse --camera=D300s)
 # - get port from autodetect
 # - test on multiple cameras attached to single Mac
+# - add eclipse phase automation based on location config to trigger exposures before and
+# after totality
 
 # Camera port
 PORT="usb:001,001"   # from: gphoto2 --auto-detect
@@ -15,7 +17,7 @@ BRACKET_CENTERS=("1/8000" "1/4000" "1/2000" "1/1000" "1/500" "1/250" "1/125" "1/
 # Needs to set this to avoid device busy error, good value is .5, edge value is .25
 SLEEP=.25
 
-# burst mode frames (max bracketing for D850 is 9 frames
+# burst mode frames (max bracketing for D850 is 9 frames)
 BURST=9
 
 #echo "reading capturetarget"
