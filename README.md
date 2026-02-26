@@ -17,3 +17,4 @@ eclipse
 - [ ] multiple cameras support, and make D300s shine one more time
 - [ ] test it on multiple cameras and multiple runs at the same time (simulate the eclipse
   schedule)
+- [ ] add preflight mode to cross-check the settings
