@@ -11,4 +11,5 @@
 - [ ] - Set burst mode to CH
 - [ ] - Set bracketing (BKT) to 9 frames, leave 0.3 as-is
 - [ ] - Attach camera to Mac via labelled cable (D850-PC)
+- [ ] - Clock sync using `./clock_sync.sh --camera=D850`
 - [ ] - Run auto detect test with `./eclipse.sh --camera=D850 --preflight`
